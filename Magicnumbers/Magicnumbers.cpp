@@ -19,7 +19,7 @@ int main() {
 	cout << "\nEnter the highest possible number: ";
 	cin >> highestNumber;
 generate:
-	magique = rand(); // this function get a random number
+	magique = rand(); // this function gets a random number
 	if (magique > highestNumber || magique < lowestNumber) goto generate;
 	cout << "\nPlease enter your first guess here: ";
 	guess:
