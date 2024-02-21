@@ -6,8 +6,8 @@ using namespace std;
 int main() {
 
 	srand(static_cast<unsigned int>(time(nullptr)));
-	int magique; // magic number
-	int guessnumber; // the person's guess
+	int magique; // Magic number
+	int guessnumber; // The person's guess
 	int lowestNumber; // Lowest possible number
 	int highestNumber; // Highest possible number
 
@@ -19,7 +19,7 @@ int main() {
 	cout << "\nEnter the highest possible number: ";
 	cin >> highestNumber;
 generate:
-	magique = rand(); // this function gets a random number
+	magique = rand(); // This function gets a random number
 	if (magique > highestNumber || magique < lowestNumber) goto generate;
 	cout << "\nPlease enter your first guess here: ";
 	guess:
