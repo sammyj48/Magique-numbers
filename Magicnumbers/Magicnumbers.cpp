@@ -1,6 +1,9 @@
 #include <iostream>
 #include <ctime>
+#include <Windows.h>
 #include "StandaloneExitChoice.h"
+#include <conio.h>
+#include <string>
 #ifdef _DEBUG
 #pragma comment(lib, "standaloneExitChoice.debug.lib")
 #else
@@ -9,7 +12,7 @@
 using namespace std;
 
 int main() {
-
+	
 	srand(static_cast<unsigned int>(time(nullptr)));
 	int magique; // Magic number
 	int guessnumber; // The person's guess
@@ -23,6 +26,13 @@ int main() {
 	cin >> lowestNumber;
 	cout << "\nEnter the highest possible number: ";
 	cin >> highestNumber;
+	try { if (lowestNumber > highestNumber) throw (1); }
+	catch (int errorCode) {
+		MessageBox(NULL, L"    Exeption thrown!\n ", L"Error!", MB_OK);
+		cerr << "\n\n\nPress any key to exit...";
+		while (true) if (_kbhit()) return 0;
+
+	}
 generate:
 	magique = rand(); // This function gets a random number
 	if (magique > highestNumber || magique < lowestNumber) goto generate;
@@ -32,6 +42,7 @@ generate:
 
 	if (guessnumber == magique) { 
 		cout << "\nWell done superhero, you guessed right!!!\n\n";
+		MessageBox(NULL, L"Well done!", L"You won! :)", MB_OK);
 		stdln::restartKey1 = 'a';
 		stdln::restartKey2 = 'A';
 		stdln::exitKey1 = 'e';
