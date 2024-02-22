@@ -29,7 +29,7 @@ int main() {
 	try { if (lowestNumber > highestNumber) throw (1); }
 	catch (int errorCode) {
 		MessageBox(NULL, L"    Exeption thrown!\n ", L"Error!", MB_OK);
-		cerr << "\n\n\nPress any key to exit...";
+		cout << "\n\n\nPress any key to exit...";
 		while (true) if (_kbhit()) return 0;
 
 	}
