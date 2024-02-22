@@ -1,6 +1,11 @@
 #include <iostream>
 #include <ctime>
-
+#include "StandaloneExitChoice.h"
+#ifdef _DEBUG
+#pragma comment(lib, "standaloneExitChoice.debug.lib")
+#else
+#pragma comment(lib, "standaloneExitChoice.release.lib")
+#endif
 using namespace std;
 
 int main() {
@@ -26,8 +31,13 @@ generate:
 	cin >> guessnumber;
 
 	if (guessnumber == magique) { 
-		cout << "\nWell done superhero, you guessed right!!!";
-		return 1;
+		cout << "\nWell done superhero, you guessed right!!!\n\n";
+		stdln::restartKey1 = 'a';
+		stdln::restartKey2 = 'A';
+		stdln::exitKey1 = 'e';
+		stdln::exitKey2 = 'E';
+		cout << "Press E to exit the game or A to go again!";
+		stdln::exitchoice(2);
 }
 
 	else {
@@ -37,6 +47,7 @@ generate:
 		else if (guessnumber < magique) cout << "\nYour guess is too low, guess again!!: ";
 		goto guess;
 	}
+	
 	return 0;
 
 }
