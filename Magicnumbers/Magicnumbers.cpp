@@ -13,8 +13,8 @@ using namespace stdln;
 void sandboxMode();
 void savedGame();
 int main() {
-
-	cout << "Press H to load saved game, where the amount of tries\nit took you to guess is stored in a file, or S for sandbox mode: ";
+	question:
+	cout << "Press H to load saved game, where the amount of tries\nit took you to guess is stored in a file,\nS for sandbox mode, or D to delete your save file: ";
 	while (true) {
 
 		if (_kbhit()) {
@@ -28,6 +28,18 @@ int main() {
 				cout << keyHit << "\n\n";
 				savedGame();
 				break;
+			}
+			else if (keyHit == 'D' || keyHit == 'd') {
+				cout << keyHit << "\n\nAre you sure? (Y/N): ";
+				while (true) {
+					if (_kbhit()) {
+						keyHit = _getch();
+						if (keyHit == 'Y' || keyHit == 'y') { remove("magique_numbers_save.txt"); cout << "\n\n\n"; goto question; }
+						else if (keyHit == 'n' || keyHit == 'N') { cout << "\n\n\n"; goto question; }
+						
+					}
+					
+				}
 			}
 
 		}

@@ -21,7 +21,7 @@ void savedGame() {
 	const int lowestNumber = 1; // Lowest possible number
 	const int highestNumber = 100; // Highest possible number
 	int amountOfTries = 1; // Amount of tries it took for the user to guess the magic number
-	cout << "This is a fun guessing game where you must guess the magic number!!!!" << endl << endl;
+	cout << "This is a fun guessing game where you must guess the magic number between 1 and 100!!!!" << endl << endl;
 	do {
 		magique = rand(); // this function gets a random number
 	} while (magique < lowestNumber || magique > highestNumber);
@@ -29,7 +29,7 @@ void savedGame() {
 	cin >> guessnumber;
 	while (guessnumber != magique) {
 		cout << "\nOopsy daisy!!";
-		if (guessnumber > highestNumber || guessnumber < lowestNumber) cout << "\nYour guess is outside of the range you specified, guess again!!: ";
+		if (guessnumber > highestNumber || guessnumber < lowestNumber) cout << "\nYour guess is outside of the range, guess again!!: ";
 		else if (guessnumber > magique) cout << "\nYour guess is too high, guess again!!: ";
 		else if (guessnumber < magique) cout << "\nYour guess is too low, guess again!!: ";
 		cin >> guessnumber;

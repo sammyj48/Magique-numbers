@@ -26,6 +26,7 @@ void sandboxMode() {
 		while (true) if (_kbhit()) return;
 
 	}
+	
 generate:
 	magique = rand(); // this function gets a random number
 	if (magique > highestNumber || magique < lowestNumber) goto generate;
