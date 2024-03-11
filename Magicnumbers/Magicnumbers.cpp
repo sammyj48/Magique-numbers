@@ -15,8 +15,8 @@ using namespace stdln;
 int main() {
 
 	srand(static_cast<unsigned int>(time(nullptr)));
-	int magique; // magic number
-	int guessnumber; // the person's guess
+	int magique; // Magic number
+	int guessnumber; // The person's guess
 	int lowestNumber; // Lowest possible number
 	int highestNumber; // Highest possible number
 
