@@ -1,18 +1,25 @@
 #include <ctime>
 #include <iostream>
+#include <random>
 
 using namespace std;
 
+namespace rng {
+    std::random_device device;
+    std::mt19937 rng(device());
+    int random(int min, int max) {
+        auto dist = std::uniform_int_distribution(min, max);
+        return dist(rng);
+    }
+}
+
 int main() {
+    int magique;       // Magic number
+    int guessnumber;   // The person's guess
+    int lowestNumber;  // Lowest possible number
+    int highestNumber; // Highest possible number
 
-	srand(static_cast<unsigned int>(time(nullptr)));
-	int magique; // Magic number
-	int guessnumber; // The person's guess
-	int lowestNumber; // Lowest possible number
-	int highestNumber; // Highest possible number
-
-
-	cout << "This is a fun guessing game where you must guess the magic number!!!!" << endl << endl;
+    cout << "This is a fun guessing game where you must guess the magic number!!!!" << endl << endl;
 	cout << "Please choose the range you want your numbers to be between:\n\n";
 	cout << "Enter the lowest possible number: ";
 	cin >> lowestNumber;
@@ -24,9 +31,7 @@ int main() {
         swap(lowestNumber, highestNumber);
     }
 
-    do {
-        magique = rand(); // this function gets a random number
-    } while (magique < lowestNumber || magique > highestNumber);
+    magique = rng::random(lowestNumber, highestNumber);
 
     cout << "\nPlease enter your first guess here: ";
     cin >> guessnumber;
@@ -40,6 +45,3 @@ int main() {
     cout << "\n\nWell done superhero, you guessed right!!\n\n\n";
     return 0;
 }
-	
-
-	
