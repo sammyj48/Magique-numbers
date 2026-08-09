@@ -38,8 +38,10 @@ int main() {
     cin >> guessnumber;
 	while (guessnumber != magique) {
 		cout << "\nOopsy daisy!!";
-		if (guessnumber > highestNumber || guessnumber < lowestNumber) cout << "\nYour guess is outside of the range you specified, guess again!!: ";
-		else if (guessnumber > magique) cout << "\nYour guess is too high, guess again!!: ";
+        if (guessnumber > highestNumber || guessnumber < lowestNumber)
+            cout << "\nYour guess is outside the range of numbers I know, "
+                    "guess again!!: ";
+        else if (guessnumber > magique) cout << "\nYour guess is too high, guess again!!: ";
 		else if (guessnumber < magique) cout << "\nYour guess is too low, guess again!!: ";
 		cin >> guessnumber;
     }
