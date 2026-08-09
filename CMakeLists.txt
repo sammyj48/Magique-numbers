@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(MagiqueNumbers VERSION 1.0.1)
+project(MagiqueNumbers VERSION 1.0.2)
 include(GNUInstallDirs)
 add_executable(MagiqueNumbers src/Magicnumbers.cpp)
 set_target_properties(MagiqueNumbers PROPERTIES CXX_STANDARD 23 CXX_STANDARD_REQUIRED ON)
